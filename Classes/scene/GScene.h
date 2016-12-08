@@ -25,6 +25,7 @@ public:
     
 protected:
     cocos2d::Layer * uiLayer;
+    cocos2d::LayerColor* gameLayer;
 private:
 };
 

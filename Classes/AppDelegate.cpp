@@ -39,7 +39,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("ColorKing", cocos2d::Rect(0, 0, designResolutionSize.width*0.8f, designResolutionSize.height*0.8f));
+        glview = GLViewImpl::createWithRect("ColorKing", cocos2d::Rect(0, 0, designResolutionSize.width*0.6f, designResolutionSize.height*0.6f));
 #else
         glview = GLViewImpl::create("ColorKing");
 #endif
@@ -56,6 +56,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
    
     register_all_packages();
+    
+    FileUtils::getInstance()->addSearchPath("fonts/");
+    FileUtils::getInstance()->addSearchPath("res/");
+    FileUtils::getInstance()->addSearchPath("config/");
 
     // create a scene. it's an autorelease object
     auto scene = GMainScene::createScene();
