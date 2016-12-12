@@ -16,6 +16,9 @@ GBullet* GBullet::create(GJsonObject* obj)
     bullet->speed = obj->getDouble("speed");
     bullet->hurt = obj->getInt("hurt");
     bullet->range = obj->getInt("range");
+    bullet->num = obj->getInt("num");
+    bullet->fireCd = obj->getDouble("fireCd");
+    bullet->onceNum = obj->getInt("onceNum");
     
     bullet->autorelease();
     return bullet;
@@ -29,6 +32,9 @@ GBullet* GBullet::create(GBullet* ho)
     bullet->speed = ho->speed;
     bullet->hurt = ho->hurt;
     bullet->range = ho->range;
+    bullet->num = ho->num;
+    bullet->fireCd = ho->fireCd;
+    bullet->onceNum = ho->onceNum;
     
     bullet->autorelease();
     return bullet;

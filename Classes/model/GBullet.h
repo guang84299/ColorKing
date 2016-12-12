@@ -24,6 +24,9 @@ public:
     float speed;
     int hurt;
     int range;
+    int num;
+    float fireCd;
+    int onceNum;
 };
 
 #endif /* GBullet_h */

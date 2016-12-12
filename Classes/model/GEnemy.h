@@ -24,10 +24,11 @@ public:
     float scale;
     int initHp;
     float speed;
-    int hurt;
     int walk;
     int idle;
     int attack;
+    float walkTime;
+    float idleTime;
     
     int hp;
     int lv;

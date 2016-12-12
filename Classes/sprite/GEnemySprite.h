@@ -22,6 +22,14 @@ public:
     bool init(int _id);
     void initAll(int _id);
     
+    void attack();
+    void hurt(GBulletSprite* bullet);
+    void reduceHp(int hp);
+    void idle();
+    void idleEnd();
+    void run();
+    void runEnd();
+    State randState();
 public:
     GEnemy* enemy;
 };

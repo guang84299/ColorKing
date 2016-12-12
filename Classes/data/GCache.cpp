@@ -14,6 +14,8 @@
 #include "model/GEnemy.h"
 #include "model/GBullet.h"
 
+#include "scene/GGameScene.h"
+
 static GCache* _instance = nullptr;
 
 GCache* GCache::getInstance()
@@ -142,4 +144,11 @@ GBullet* GCache::getBullet(int _id)
         }
     }
     return nullptr;
+}
+
+GGameScene* GCache::getGameScene()
+{
+    Scene* scene = Director::getInstance()->getRunningScene();
+    GGameScene* gameScene = static_cast<GGameScene*>(scene);
+    return gameScene;
 }

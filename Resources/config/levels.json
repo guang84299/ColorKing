@@ -1,3 +1,3 @@
 [		
-	{"id":1,"maxEnemyNum":20,"updateTime":2.0,"time":60}
+	{"id":1,"maxEnemyNum":40,"updateTime":1.0,"time":60,"updateBulletTime":3.0,"maxBulletNum":5,"bullet1":100,"bullet2":80,"bullet3":60,"bullet4":30,"bullet5":150,"bullet6":180}
 ]

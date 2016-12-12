@@ -18,6 +18,7 @@ class GTools
 {
 public:
     static GJsonArray* getConfigData(const std::string& path);
+    static float getAngle(const Vec2& dir);
 };
 
 #endif /* GTools_h */

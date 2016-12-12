@@ -19,15 +19,29 @@ class GLevel : public Ref
 public:
     static GLevel* create(GJsonObject* obj);
     static GLevel* create(GLevel* level);
+    
+    int getRandBulletId();
 public:
     int _id;
     int maxEnemyNum;
     float updateTime;
     float time;
+    float updateBulletTime;
+    int maxBulletNum;
+    int bullet1;
+    int bullet2;
+    int bullet3;
+    int bullet4;
+    int bullet5;
+    int bullet6;
+    
+    
+    int bulletRand;
+    
     
     //变更数据
     float updateTimeDt;
-    
+    float updateBulletTimeDt;
 };
 
 #endif /* GLevel_h */

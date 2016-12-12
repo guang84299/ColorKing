@@ -1,3 +1,11 @@
 [		
-	{"id":1,"speed":2.0,"hurt":50,"range":300}
+	{"id":1,"speed":400.0,"hurt":50,"range":400,"num":1,"fireCd":0.1,"onceNum":18},
+    {"id":2,"speed":300.0,"hurt":10,"range":300,"num":1,"fireCd":0.1,"onceNum":18},
+ 
+    {"id":11,"speed":500.0,"hurt":20,"range":1280,"num":50,"fireCd":0.1,"onceNum":18},
+    {"id":12,"speed":400.0,"hurt":20,"range":600,"num":6,"fireCd":1.2,"onceNum":37},
+    {"id":13,"speed":400.0,"hurt":20,"range":600,"num":15,"fireCd":0.1,"onceNum":10},
+    {"id":14,"speed":500.0,"hurt":20,"range":600,"num":50,"fireCd":0.1,"onceNum":10},
+    {"id":15,"speed":400.0,"hurt":20,"range":600,"num":20,"fireCd":0.2,"onceNum":18},
+    {"id":16,"speed":400.0,"hurt":20,"range":600,"num":20,"fireCd":0.1,"onceNum":18}
 ]

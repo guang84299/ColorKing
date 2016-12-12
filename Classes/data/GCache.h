@@ -17,6 +17,7 @@ class GLevel;
 class GHero;
 class GEnemy;
 class GBullet;
+class GGameScene;
 
 class GCache : public Ref
 {
@@ -32,6 +33,8 @@ public:
     GHero* getHero(int _id);
     GEnemy* getEnemy(int _id);
     GBullet* getBullet(int _id);
+    
+    GGameScene* getGameScene();
 private:
     std::vector<GLevel*> levels;
     std::vector<GHero*> heros;

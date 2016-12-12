@@ -22,12 +22,18 @@ public:
     bool init(int _id);
     void initAll(int _id);
     
-    void changeTarget(GSprite* target);
     void attack();
+    void hurt(GBulletSprite* bullet);
+    void reduceHp(int hp);
     
+    void run(Vec2& pos);
+
+    void changeSkill(int _id);
+    void skill();
+    void skillEnd();
 public:
     GHero* hero;
-    GSprite* target;
+    bool isSkill;
 };
 
 #endif /* GHeroSprite_h */

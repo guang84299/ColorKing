@@ -24,9 +24,7 @@ public:
     float scale;
     int initHp;
     float speed;
-    int hurt;
     float attackSpeed;
-    float attackRange;
     
     int hp;
     int lv;

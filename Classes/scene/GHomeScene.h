@@ -9,7 +9,10 @@
 #define GHomeScene_h
 
 #include "GScene.h"
+#include "extensions/cocos-ext.h"
+#include "ui/CocosGUI.h"
 
+using namespace cocos2d::ui;
 
 class GHomeScene : public GScene
 {
