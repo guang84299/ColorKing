@@ -12,6 +12,8 @@
 #include "cocos2d.h"
 #include "extensions/cocos-ext.h"
 #include "ui/CocosGUI.h"
+#include "data/GCache.h"
+#include "tools/GTools.h"
 
 using namespace cocos2d::ui;
 
@@ -30,11 +32,17 @@ public:
     void setColor(cocos2d::Color4B color);
     
     void useDialogStyle();
+    void useLevelStyle();
+    void useOverStyle();
+    void useRoleStyle();
 protected:
     cocos2d::LayerColor* uiLayer;
     cocos2d::EventListenerTouchOneByOne* touchListener;
 private:
     bool isDialogStyle;
+    bool isLevleStyle;
+    bool isOverStyle;
+    bool isRoleStyle;
     
 };
 #endif /* GTouchLayer_h */

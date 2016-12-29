@@ -1,5 +1,6 @@
 #include "GMainScene.h"
 #include "data/GCache.h"
+#include "tools/GTools.h"
 #include "scene/GHomeScene.h"
 
 USING_NS_CC;
@@ -22,6 +23,13 @@ bool GMainScene::init()
     
     initUI();
     
+    if(GCache::getCurrLevel() == 0)
+    {
+        GCache::setCurrLevel(1);
+        GCache::setMusic(true);
+    }
+    GCache::setAd(false);
+    GTools::preload();
     this->runAction(Sequence::create(DelayTime::create(2),
                                      CallFunc::create(CC_CALLBACK_0(GMainScene::goHome, this)),
                                      NULL));

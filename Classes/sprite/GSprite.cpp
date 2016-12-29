@@ -12,6 +12,7 @@
 #include "model/GBullet.h"
 #include "sprite/GHeroSprite.h"
 #include "sprite/GEnemySprite.h"
+#include "sprite/GDropSprite.h"
 #include "scene/GGameScene.h"
 
 
@@ -98,6 +99,7 @@ void GSprite::born()
     this->runAction(Sequence::create(EaseElasticOut::create(ScaleTo::create(1.2f,1)),
                                      CallFunc::create(CC_CALLBACK_0(GSprite::bornEnd, this)),
                                      NULL));
+    
 }
 
 void GSprite::bornEnd()
@@ -127,6 +129,18 @@ void GSprite::die()
 
 void GSprite::dieEnd()
 {
+    Vec2 dir(0,1);
+    for(int i=0;i<5;i++)
+    {
+        GDropSprite* drop = GDropSprite::create(1, 2);
+        drop->setPosition(this->getPos());
+        this->getParent()->addChild(drop);
+        dir.rotate(Vec2::ZERO, 180/M_PI*10);
+        drop->run(dir);
+        getScene()->drops.push_back(drop);
+    }
+   
+    
     this->removeFromParent();
 }
 
@@ -245,6 +259,14 @@ Vec2 GSprite::getHpCurrDir()
     Vec2 dir = Vec2::forAngle(currAngle);
     
     return dir;
+}
+
+void GSprite::clearAllAction()
+{
+    shape->stopAllActions();
+    circle->stopAllActions();
+    hp->stopAllActions();
+    this->stopAllActions();
 }
 
 GGameScene* GSprite::getScene()

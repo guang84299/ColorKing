@@ -36,7 +36,7 @@ void GAbout::initUI()
     btn->addTouchEventListener(CC_CALLBACK_2(GAbout::touchEvent, this));
     uiLayer->addChild(btn);
     
-    auto text = Text::create("评价我们", "", 24);
+    auto text = Text::create(_T("about_1"), "", 24);
     text->setPosition(Vec2(btn->getPositionX(),btn->getPositionY()-60));
     uiLayer->addChild(text);
     
@@ -46,7 +46,7 @@ void GAbout::initUI()
     btn->addTouchEventListener(CC_CALLBACK_2(GAbout::touchEvent, this));
     uiLayer->addChild(btn);
     
-    text = Text::create("简单分享", "", 24);
+    text = Text::create(_T("about_2"), "", 24);
     text->setPosition(Vec2(btn->getPositionX(),btn->getPositionY()-60));
     uiLayer->addChild(text);
     
@@ -56,15 +56,15 @@ void GAbout::initUI()
     btn->addTouchEventListener(CC_CALLBACK_2(GAbout::touchEvent, this));
     uiLayer->addChild(btn);
     
-    text = Text::create("更多好玩", "", 24);
+    text = Text::create(_T("about_3"), "", 24);
     text->setPosition(Vec2(btn->getPositionX(),btn->getPositionY()-60));
     uiLayer->addChild(text);
     
-    text = Text::create("春光工作室", "", 26);
+    text = Text::create(_T("about_4"), "", 26);
     text->setPosition(Vec2(s.width/2,s.height*0.42f));
     uiLayer->addChild(text);
     
-    text = Text::create("开发者：严春光", "", 20);
+    text = Text::create(_T("about_5"), "", 20);
     text->setPosition(Vec2(s.width/2,s.height*0.35f));
     uiLayer->addChild(text);
 }
@@ -76,6 +76,7 @@ void GAbout::touchEvent(Ref *pSender, Widget::TouchEventType type)
     switch (type)
     {
         case Widget::TouchEventType::BEGAN:
+            GTools::playSound(SOUND_BUTTON);
             break;
             
         case Widget::TouchEventType::MOVED:

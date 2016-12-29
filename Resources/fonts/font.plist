@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>home_1</key>
+	<string>进入游戏</string>
+	<key>game_1</key>
+	<string>本关获得金币：</string>
+	<key>game_2</key>
+	<string>剩余时间：</string>
+	<key>about_1</key>
+	<string>评价我们</string>
+	<key>about_2</key>
+	<string>简单分享</string>
+	<key>about_3</key>
+	<string>更多好玩</string>
+	<key>about_4</key>
+	<string>春光工作室</string>
+	<key>about_5</key>
+	<string>开发者：严春光</string>
+	<key>ad_1</key>
+	<string>是否花费10000金币去掉广告？</string>
+	<key>ad_2</key>
+	<string>当前金币 </string>
+	<key>ad_3</key>
+	<string>好哒</string>
+	<key>ad_4</key>
+	<string>不用啦</string>
+	<key>gameover_1</key>
+	<string>闯关失败！</string>
+	<key>gameover_2</key>
+	<string>再玩一次</string>
+	<key>gameover_3</key>
+	<string>回主界面</string>
+	<key>gameover_4</key>
+	<string>闯关成功！</string>
+	<key>gameover_5</key>
+	<string>下一关</string>
+	<key>role_1</key>
+	<string>当前等级: %d</string>
+	<key>role_2</key>
+	<string>下一等级: %d</string>
+	<key>role_3</key>
+	<string>当前战斗力: %d</string>
+	<key>role_4</key>
+	<string>下级战斗力: %d</string>
+	<key>role_5</key>
+	<string>花费%d金币升级</string>
+	<key>role_6</key>
+	<string>花费%d钻石升级</string>
+	<key>role_7</key>
+	<string>当前金币: %d</string>
+	<key>role_8</key>
+	<string>当前钻石: %d</string>
+</dict>
+</plist>

@@ -25,7 +25,7 @@ public:
     int _id;
     int maxEnemyNum;
     float updateTime;
-    float time;
+    int time;
     float updateBulletTime;
     int maxBulletNum;
     int bullet1;

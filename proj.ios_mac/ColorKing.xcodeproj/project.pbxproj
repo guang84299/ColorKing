@@ -52,6 +52,8 @@
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
+		6241B6571E0ABDE400733CB7 /* GUIGameOver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6241B6551E0ABDE400733CB7 /* GUIGameOver.cpp */; };
+		6241B6581E0ABDE400733CB7 /* GUIGameOver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6241B6551E0ABDE400733CB7 /* GUIGameOver.cpp */; };
 		624CC1C21DF84D5E00F691DB /* GHero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 624CC1C01DF84D5E00F691DB /* GHero.cpp */; };
 		624CC1C31DF84D5E00F691DB /* GHero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 624CC1C01DF84D5E00F691DB /* GHero.cpp */; };
 		624CC1C71DF84FC800F691DB /* GEnemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 624CC1C51DF84FC800F691DB /* GEnemy.cpp */; };
@@ -72,6 +74,10 @@
 		624EB29D1DFC5CF600B36426 /* GAd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 624EB29A1DFC5CF600B36426 /* GAd.cpp */; };
 		624EB2A01DFD172A00B36426 /* GDropSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 624EB29E1DFD172A00B36426 /* GDropSprite.cpp */; };
 		624EB2A11DFD172A00B36426 /* GDropSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 624EB29E1DFD172A00B36426 /* GDropSprite.cpp */; };
+		624EB2A41E00356700B36426 /* GUILevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 624EB2A21E00356700B36426 /* GUILevel.cpp */; };
+		624EB2A51E00356700B36426 /* GUILevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 624EB2A21E00356700B36426 /* GUILevel.cpp */; };
+		624EB2A81E004BD300B36426 /* GUIRole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 624EB2A61E004BD300B36426 /* GUIRole.cpp */; };
+		624EB2A91E004BD300B36426 /* GUIRole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 624EB2A61E004BD300B36426 /* GUIRole.cpp */; };
 		627802221DF58765000674FB /* GGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6278021A1DF58765000674FB /* GGameScene.cpp */; };
 		627802231DF58765000674FB /* GHomeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6278021C1DF58765000674FB /* GHomeScene.cpp */; };
 		627802241DF58765000674FB /* GMainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6278021E1DF58765000674FB /* GMainScene.cpp */; };
@@ -191,6 +197,8 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		6241B6551E0ABDE400733CB7 /* GUIGameOver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GUIGameOver.cpp; path = ui/GUIGameOver.cpp; sourceTree = "<group>"; };
+		6241B6561E0ABDE400733CB7 /* GUIGameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GUIGameOver.h; path = ui/GUIGameOver.h; sourceTree = "<group>"; };
 		624CC1C01DF84D5E00F691DB /* GHero.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHero.cpp; path = model/GHero.cpp; sourceTree = "<group>"; };
 		624CC1C11DF84D5E00F691DB /* GHero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHero.h; path = model/GHero.h; sourceTree = "<group>"; };
 		624CC1C51DF84FC800F691DB /* GEnemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GEnemy.cpp; path = model/GEnemy.cpp; sourceTree = "<group>"; };
@@ -210,6 +218,10 @@
 		624EB29B1DFC5CF600B36426 /* GAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAd.h; path = ui/GAd.h; sourceTree = "<group>"; };
 		624EB29E1DFD172A00B36426 /* GDropSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GDropSprite.cpp; path = sprite/GDropSprite.cpp; sourceTree = "<group>"; };
 		624EB29F1DFD172A00B36426 /* GDropSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDropSprite.h; path = sprite/GDropSprite.h; sourceTree = "<group>"; };
+		624EB2A21E00356700B36426 /* GUILevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GUILevel.cpp; path = ui/GUILevel.cpp; sourceTree = "<group>"; };
+		624EB2A31E00356700B36426 /* GUILevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GUILevel.h; path = ui/GUILevel.h; sourceTree = "<group>"; };
+		624EB2A61E004BD300B36426 /* GUIRole.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GUIRole.cpp; path = ui/GUIRole.cpp; sourceTree = "<group>"; };
+		624EB2A71E004BD300B36426 /* GUIRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GUIRole.h; path = ui/GUIRole.h; sourceTree = "<group>"; };
 		6278021A1DF58765000674FB /* GGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GGameScene.cpp; path = scene/GGameScene.cpp; sourceTree = "<group>"; };
 		6278021B1DF58765000674FB /* GGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGameScene.h; path = scene/GGameScene.h; sourceTree = "<group>"; };
 		6278021C1DF58765000674FB /* GHomeScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GHomeScene.cpp; path = scene/GHomeScene.cpp; sourceTree = "<group>"; };
@@ -448,6 +460,12 @@
 				624EB2921DFC548600B36426 /* GAbout.h */,
 				624EB29A1DFC5CF600B36426 /* GAd.cpp */,
 				624EB29B1DFC5CF600B36426 /* GAd.h */,
+				624EB2A21E00356700B36426 /* GUILevel.cpp */,
+				624EB2A31E00356700B36426 /* GUILevel.h */,
+				624EB2A61E004BD300B36426 /* GUIRole.cpp */,
+				624EB2A71E004BD300B36426 /* GUIRole.h */,
+				6241B6551E0ABDE400733CB7 /* GUIGameOver.cpp */,
+				6241B6561E0ABDE400733CB7 /* GUIGameOver.h */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -672,9 +690,11 @@
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				627802251DF58765000674FB /* GScene.cpp in Sources */,
 				627802221DF58765000674FB /* GGameScene.cpp in Sources */,
+				624EB2A81E004BD300B36426 /* GUIRole.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				627802501DF70EB1000674FB /* GCache.cpp in Sources */,
 				624EB2A01DFD172A00B36426 /* GDropSprite.cpp in Sources */,
+				6241B6571E0ABDE400733CB7 /* GUIGameOver.cpp in Sources */,
 				624CC28E1DF9BA9A00F691DB /* GRockView.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				624EB2981DFC54BE00B36426 /* GTouchLayer.cpp in Sources */,
@@ -685,6 +705,7 @@
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				627802471DF70B1B000674FB /* GLevel.cpp in Sources */,
 				627802391DF6F843000674FB /* GHeroSprite.cpp in Sources */,
+				624EB2A41E00356700B36426 /* GUILevel.cpp in Sources */,
 				6278022F1DF5A756000674FB /* GSprite.cpp in Sources */,
 				624CC1C21DF84D5E00F691DB /* GHero.cpp in Sources */,
 			);
@@ -695,8 +716,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				6241B6581E0ABDE400733CB7 /* GUIGameOver.cpp in Sources */,
 				627802271DF58A3C000674FB /* GMainScene.cpp in Sources */,
 				6278023E1DF6FBA6000674FB /* GEnemySprite.cpp in Sources */,
+				624EB2A91E004BD300B36426 /* GUIRole.cpp in Sources */,
 				627802511DF70EB1000674FB /* GCache.cpp in Sources */,
 				624CC1C81DF84FC800F691DB /* GEnemy.cpp in Sources */,
 				624CC28F1DF9BA9A00F691DB /* GRockView.cpp in Sources */,
@@ -715,6 +738,7 @@
 				627802481DF70B1B000674FB /* GLevel.cpp in Sources */,
 				624EB2A11DFD172A00B36426 /* GDropSprite.cpp in Sources */,
 				627802431DF70AC1000674FB /* GJson.cpp in Sources */,
+				624EB2A51E00356700B36426 /* GUILevel.cpp in Sources */,
 				624EB2991DFC54C200B36426 /* GTouchLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

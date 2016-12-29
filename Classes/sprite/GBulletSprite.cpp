@@ -97,6 +97,8 @@ void GBulletSprite::run()
     {
         run_16();
     }
+    
+    GTools::playSound(SOUND_SHOOT);
 
 }
 

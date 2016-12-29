@@ -71,6 +71,7 @@ public:
     virtual State randState(){return this->state;};
     Vec2 getMaxVec(Vec2 v);
     Vec2 getHpCurrDir();
+    void clearAllAction();
     GGameScene* getScene();
 protected:
     Sprite* shape;

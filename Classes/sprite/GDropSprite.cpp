@@ -7,6 +7,8 @@
 //
 
 #include "GDropSprite.h"
+#include "data/GCache.h"
+#include "tools/GTools.h"
 
 GDropSprite* GDropSprite::create(int _id,int type)
 {
@@ -61,19 +63,47 @@ bool GDropSprite::init(int _id,int type)
         {
             this->setColor(Color3B::ORANGE);
         }
+        this->runAction(RepeatForever::create(Blink::create(random(0.6f,1.3f), 1)));
     }
     //金币
     else if(type == 2)
     {
-        
+        this->initWithFile("coin.png");
+        this->setScale(0.36f);
+        this->setContentSize(this->getContentSize()*this->getScale());
+        this->setColor(Color3B(255,198,54));
     }
-
+    isDie = false;
     return true;
+}
+
+void GDropSprite::run(const Vec2& dir)
+{
+    Vec2 v(random(-100, 100),random(0, 100));
+    int h = random(30, 50);
+    auto ac = JumpBy::create(1,v , h, random(1,2));
+    this->runAction(ac);
+    
+//    GTools::playSound(SOUND_COIN);
 }
 
 void GDropSprite::die(const Vec2& v)
 {
-    this->runAction(Sequence::create(EaseSineOut::create(MoveTo::create(0.1f, v)),
+    this->runAction(Sequence::create(Spawn::create(EaseSineOut::create(MoveTo::create(0.2f, v)),
+                                                   ScaleTo::create(0.2f, 0),
+                                                   NULL),
                                      RemoveSelf::create(),
                                      NULL));
+    GTools::playSound(SOUND_COIN);
 }
+
+void GDropSprite::die2(const Vec2& v)
+{
+    this->runAction(Sequence::create(Spawn::create(EaseSineOut::create(MoveTo::create(0.2f, v)),
+                                                   ScaleTo::create(0.2f, 0),
+                                                   NULL),
+                                     RemoveSelf::create(),
+                                     NULL));
+    GTools::playSound(SOUND_SKILL);
+}
+

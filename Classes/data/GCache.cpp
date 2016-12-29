@@ -61,6 +61,9 @@ void GCache::init()
         bullet->retain();
         bullets.push_back(bullet);
     }
+    
+    lang = Application::getInstance()->getCurrentLanguageCode();
+    initFont();
 }
 
 void GCache::destory()
@@ -94,6 +97,29 @@ void GCache::destory()
     bullets.clear();
 }
 
+std::string GCache::getLang()
+{
+    return this->lang;
+}
+
+void GCache::initFont()
+{
+    std::string path = "font-";
+    path = path + this->lang + std::string(".plist");
+    if(this->lang == "zh" || !FileUtils::getInstance()->isFileExist(path))
+    {
+        path = "font.plist";
+    }
+    v_font =  FileUtils::getInstance()->getValueMapFromFile(path);
+}
+
+std::string GCache::getFont(const std::string &key)
+{
+    std::string str = v_font[key.c_str()].asString();
+    return str;
+}
+
+
 GLevel* GCache::getLevel(int lv)
 {
     for(int i=0;i<levels.size();i++)
@@ -105,6 +131,11 @@ GLevel* GCache::getLevel(int lv)
         }
     }
     return nullptr;
+}
+
+int GCache::getLevelNum()
+{
+    return levels.size();
 }
 
 GHero* GCache::getHero(int _id)
@@ -144,6 +175,68 @@ GBullet* GCache::getBullet(int _id)
         }
     }
     return nullptr;
+}
+
+void GCache::setGameLevel(int level)
+{
+    this->gameLevel = level;
+}
+
+int GCache::getGameLevel()
+{
+    return this->gameLevel;
+}
+
+void GCache::setCurrLevel(int currLevel)
+{
+    UserDefault::getInstance()->setIntegerForKey("currLevel", currLevel);
+    UserDefault::getInstance()->flush();
+}
+
+int GCache::getCurrLevel()
+{
+    return UserDefault::getInstance()->getIntegerForKey("currLevel");
+}
+
+void GCache::setLv(int lv)
+{
+    UserDefault::getInstance()->setIntegerForKey("lv", lv);
+    UserDefault::getInstance()->flush();
+}
+int GCache::getLv()
+{
+    return UserDefault::getInstance()->getIntegerForKey("lv");
+}
+
+void GCache::setCoin(int coin)
+{
+    UserDefault::getInstance()->setIntegerForKey("coin", coin);
+    UserDefault::getInstance()->flush();
+}
+
+int GCache::getCoin()
+{
+    return UserDefault::getInstance()->getIntegerForKey("coin");
+}
+
+void GCache::setMusic(bool music)
+{
+    UserDefault::getInstance()->setBoolForKey("music", music);
+    UserDefault::getInstance()->flush();
+}
+bool GCache::isMusic()
+{
+    return UserDefault::getInstance()->getBoolForKey("music");
+}
+
+void GCache::setAd(bool ad)
+{
+    UserDefault::getInstance()->setBoolForKey("ad", ad);
+    UserDefault::getInstance()->flush();
+}
+bool GCache::isAd()
+{
+    return UserDefault::getInstance()->getBoolForKey("ad");
 }
 
 GGameScene* GCache::getGameScene()

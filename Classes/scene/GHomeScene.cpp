@@ -11,6 +11,8 @@
 
 #include "ui/GAbout.h"
 #include "ui/GAd.h"
+#include "ui/GUILevel.h"
+#include "ui/GUIRole.h"
 
 USING_NS_CC;
 
@@ -47,7 +49,7 @@ void GHomeScene::initUI()
     uiLayer->addChild(sp);
     
     Button* btn = Button::create();
-    btn->setTitleText("进入游戏");
+    btn->setTitleText(_T("home_1"));
     btn->setTitleFontSize(34);
     btn->setName("start");
     btn->setPosition(Vec2(s.width/2,s.height*0.15f));
@@ -66,38 +68,58 @@ void GHomeScene::initUI()
     btn->addTouchEventListener(CC_CALLBACK_2(GHomeScene::touchEvent, this));
     uiLayer->addChild(btn);
 
-    btn = Button::create("02.png","02.png");
-    btn->setName("ad");
-    btn->setAnchorPoint(Vec2(1,1));
-    btn->setPosition(Vec2(s.width - 20,s.height-150));
-    btn->addTouchEventListener(CC_CALLBACK_2(GHomeScene::touchEvent, this));
-    uiLayer->addChild(btn);
+    int num = 1;
+    if(!GCache::isAd())
+    {
+        btn = Button::create("02.png","02.png");
+        btn->setName("ad");
+        btn->setAnchorPoint(Vec2(1,1));
+        btn->setPosition(Vec2(s.width - 20,s.height-150));
+        btn->addTouchEventListener(CC_CALLBACK_2(GHomeScene::touchEvent, this));
+        uiLayer->addChild(btn);
+        num++;
+    }
     
     btn = Button::create("sound.png","sound.png");
     btn->setName("sound");
     btn->setAnchorPoint(Vec2(1,1));
-    btn->setPosition(Vec2(s.width - 20,s.height-130*2));
+    btn->setPosition(Vec2(s.width - 20,s.height-130*num));
     btn->addTouchEventListener(CC_CALLBACK_2(GHomeScene::touchEvent, this));
     uiLayer->addChild(btn);
+    num++;
+    if(!GCache::isMusic())
+    {
+        btn->loadTextures("sound_close.png", "sound_close.png");
+    }
     
     btn = Button::create("coin.png","coin.png");
     btn->setName("coin");
     btn->setAnchorPoint(Vec2(1,1));
-    btn->setPosition(Vec2(s.width - 20,s.height-130*3));
+    btn->setPosition(Vec2(s.width - 20,s.height-130*num));
     btn->addTouchEventListener(CC_CALLBACK_2(GHomeScene::touchEvent, this));
     uiLayer->addChild(btn);
+    num++;
     
     btn = Button::create("role.png","role.png");
     btn->setName("role");
     btn->setAnchorPoint(Vec2(1,1));
-    btn->setPosition(Vec2(s.width - 20,s.height-130*4));
+    btn->setPosition(Vec2(s.width - 20,s.height-130*num));
     btn->addTouchEventListener(CC_CALLBACK_2(GHomeScene::touchEvent, this));
     uiLayer->addChild(btn);
 }
 
 void GHomeScene::updateUI()
 {
-    
+    if(GCache::isAd())
+    {
+        auto s = Director::getInstance()->getWinSize();
+        
+        uiLayer->removeChildByName("ad");
+        
+        uiLayer->getChildByName("sound")->setPositionY(s.height-130*1);
+        uiLayer->getChildByName("coin")->setPositionY(s.height-130*2);
+        uiLayer->getChildByName("role")->setPositionY(s.height-130*3);
+    }
 }
 
 void GHomeScene::touchEvent(Ref *pSender, Widget::TouchEventType type)
@@ -107,6 +129,7 @@ void GHomeScene::touchEvent(Ref *pSender, Widget::TouchEventType type)
     switch (type)
     {
         case Widget::TouchEventType::BEGAN:
+            GTools::playSound(SOUND_BUTTON);
             break;
             
         case Widget::TouchEventType::MOVED:
@@ -116,8 +139,7 @@ void GHomeScene::touchEvent(Ref *pSender, Widget::TouchEventType type)
             
             if(name == "start")
             {
-                auto t = TransitionFade::create(1, GGameScene::create(), Color3B::BLACK);
-                Director::getInstance()->replaceScene(t);
+                uiLayer->addChild(GUILevel::create(),2);
             }
             else if(name == "about")
             {
@@ -126,6 +148,22 @@ void GHomeScene::touchEvent(Ref *pSender, Widget::TouchEventType type)
             else if(name == "ad")
             {
                 uiLayer->addChild(GAd::create(),2);
+            }
+            else if(name == "role")
+            {
+                uiLayer->addChild(GUIRole::create(),2);
+            }
+            else if(name == "sound")
+            {
+                GCache::setMusic(!GCache::isMusic());
+                if(GCache::isMusic())
+                {
+                    btn->loadTextures("sound.png", "sound.png");
+                }
+                else
+                {
+                    btn->loadTextures("sound_close.png", "sound_close.png");
+                }
             }
             break;
             

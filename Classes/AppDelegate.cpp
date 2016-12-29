@@ -59,6 +59,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     FileUtils::getInstance()->addSearchPath("fonts/");
     FileUtils::getInstance()->addSearchPath("res/");
+    FileUtils::getInstance()->addSearchPath("res/music");
     FileUtils::getInstance()->addSearchPath("config/");
 
     // create a scene. it's an autorelease object

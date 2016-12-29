@@ -19,6 +19,16 @@ class GTools
 public:
     static GJsonArray* getConfigData(const std::string& path);
     static float getAngle(const Vec2& dir);
+    
+    //sound
+    static void playMusic(const std::string &file);
+    static void pauseMusic();
+    static void stopMusic();
+    static void resumeMusic(const std::string &file);
+    static void playSound(const std::string &sound);
+    
+    static void preload();
+
 };
 
 #endif /* GTools_h */

@@ -22,10 +22,12 @@ bool GTouchLayer::init()
     this->addChild(uiLayer);
     
     this->setPositionY(s.height);
-    this->runAction(EaseSineOut::create(MoveBy::create(0.8f,Vec2(0,-s.height))));
+    this->runAction(EaseSineOut::create(MoveBy::create(0.5f,Vec2(0,-s.height))));
     
     isDialogStyle = false;
-    
+    isLevleStyle = false;
+    isOverStyle = false;
+    isRoleStyle = false;
     return true;
 }
 
@@ -40,7 +42,37 @@ void GTouchLayer::useDialogStyle()
     this->setPositionY(0);
     uiLayer->setPosition(s.width/4, s.height/4);
     this->setScale(0.1);
-    this->runAction(EaseSineOut::create(ScaleTo::create(0.4f,1)));
+    this->runAction(EaseSineOut::create(ScaleTo::create(0.3f,1)));
+}
+
+void GTouchLayer::useLevelStyle()
+{
+    isLevleStyle = true;
+    
+    _eventDispatcher->removeEventListener(touchListener);
+}
+
+void GTouchLayer::useOverStyle()
+{
+    this->isOverStyle = true;
+     _eventDispatcher->removeEventListener(touchListener);
+    
+    Size s = Director::getInstance()->getWinSize();
+    
+    this->stopAllActions();
+    setColor(Color4B(60,60,60,255));
+    uiLayer->setContentSize(Size(s.width/2,s.height/2));
+    this->setPositionY(0);
+    uiLayer->setPosition(s.width/4, s.height/4);
+    this->setScale(0.1);
+    this->runAction(EaseSineOut::create(ScaleTo::create(0.3f,1)));
+}
+
+void GTouchLayer::useRoleStyle()
+{
+    isRoleStyle = true;
+    
+    _eventDispatcher->removeEventListener(touchListener);
 }
 
 void GTouchLayer::setColor(cocos2d::Color4B color)
@@ -53,11 +85,15 @@ bool GTouchLayer::onTouchBegan(Touch* touch, Event* event)
     Size s = Director::getInstance()->getWinSize();
     if(isDialogStyle)
     {
-        this->runAction(Sequence::create(EaseSineOut::create(ScaleTo::create(0.4f,0.01f)),RemoveSelf::create(), NULL));
+        this->runAction(Sequence::create(EaseSineOut::create(ScaleTo::create(0.3f,0.01f)),RemoveSelf::create(), NULL));
+    }
+    else if(isOverStyle)
+    {
+        return true;
     }
     else
     {
-        this->runAction(Sequence::create(EaseSineOut::create(MoveBy::create(0.8f,Vec2(0,s.height))),RemoveSelf::create(), NULL));
+        this->runAction(Sequence::create(EaseSineOut::create(MoveBy::create(0.5f,Vec2(0,s.height))),RemoveSelf::create(), NULL));
     }
     
     return true;
@@ -66,7 +102,8 @@ bool GTouchLayer::onTouchBegan(Touch* touch, Event* event)
 void GTouchLayer::onEnter()
 {
     Layer::onEnter();
-    
+    if(isLevleStyle || isRoleStyle)
+        return;
     touchListener = EventListenerTouchOneByOne::create();
     touchListener->onTouchBegan = CC_CALLBACK_2(GTouchLayer::onTouchBegan, this);
     touchListener->setSwallowTouches(true);
@@ -77,5 +114,7 @@ void GTouchLayer::onEnter()
 void GTouchLayer::onExit()
 {
     Layer::onExit();
+    if(isLevleStyle || isRoleStyle)
+        return;
     _eventDispatcher->removeEventListener(touchListener);
 }

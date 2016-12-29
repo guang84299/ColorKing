@@ -13,7 +13,29 @@ LOCAL_MODULE_FILENAME := libMyGame
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
-                   ../../Classes/HelloWorldScene.cpp
+                   ../../Classes/data/GCache.cpp \
+                   ../../Classes/data/GJson.cpp \
+                   ../../Classes/model/GBullet.cpp \
+                   ../../Classes/model/GEnemy.cpp \
+                   ../../Classes/model/GHero.cpp \
+                   ../../Classes/model/GLevel.cpp \
+                   ../../Classes/scene/GGameScene.cpp \
+                   ../../Classes/scene/GHomeScene.cpp \
+                   ../../Classes/scene/GMainScene.cpp \
+                   ../../Classes/scene/GScene.cpp \
+                   ../../Classes/sprite/GBulletSprite.cpp \
+                   ../../Classes/sprite/GDropSprite.cpp \
+                   ../../Classes/sprite/GEnemySprite.cpp \
+                   ../../Classes/sprite/GHeroSprite.cpp \
+                   ../../Classes/sprite/GSprite.cpp \
+                   ../../Classes/tools/GTools.cpp \
+                   ../../Classes/ui/GAbout.cpp \
+                   ../../Classes/ui/GAd.cpp \
+                   ../../Classes/ui/GRockView.cpp \
+                   ../../Classes/ui/GTouchLayer.cpp \
+                   ../../Classes/ui/GUIGameOver.cpp \
+                   ../../Classes/ui/GUILevel.cpp \
+                   ../../Classes/ui/GUIRole.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 

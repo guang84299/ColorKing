@@ -19,14 +19,15 @@ public:
     static GDropSprite* create(int _id,int type);
     bool init(int _id,int type);
     
-    void run();
+    void run(const Vec2& v);
 
     void die(const Vec2& v);
+    void die2(const Vec2& v);
 
 public:
     int _id;
     int type;
-    
+    bool isDie;
 };
 
 #endif /* GDropSprite_h */

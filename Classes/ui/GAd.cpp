@@ -7,6 +7,7 @@
 //
 
 #include "GAd.h"
+#include "scene/GHomeScene.h"
 
 bool GAd::init()
 {
@@ -24,16 +25,19 @@ void GAd::initUI()
 {
     auto s = uiLayer->getContentSize();
     
-    auto text = Text::create("是否花费10000金币去掉广告？", "", 30);
+    auto text = Text::create(_T("ad_1"), "", 30);
     text->setPosition(Vec2(s.width/2,s.height*0.8f));
     uiLayer->addChild(text);
     
-    text = Text::create("当前金币 500", "", 20);
+    char c[7];
+    sprintf(c, "%d",GCache::getCoin());
+    
+    text = Text::create(_T("ad_2")+c, "", 20);
     text->setPosition(Vec2(s.width/2,s.height*0.6f));
     uiLayer->addChild(text);
 
     auto btn = Button::create();
-    btn->setTitleText("好哒");
+    btn->setTitleText(_T("ad_3"));
     btn->setTitleFontSize(30);
     btn->setName("yes");
     //    btn->setAnchorPoint(Vec2(1,1));
@@ -42,7 +46,7 @@ void GAd::initUI()
     uiLayer->addChild(btn);
     
     btn = Button::create();
-    btn->setTitleText("不用啦");
+    btn->setTitleText(_T("ad_4"));
     btn->setTitleFontSize(30);
     btn->setName("no");
     //    btn->setAnchorPoint(Vec2(1,1));
@@ -58,6 +62,7 @@ void GAd::touchEvent(Ref *pSender, Widget::TouchEventType type)
     switch (type)
     {
         case Widget::TouchEventType::BEGAN:
+            GTools::playSound(SOUND_BUTTON);
             break;
             
         case Widget::TouchEventType::MOVED:
@@ -65,9 +70,17 @@ void GAd::touchEvent(Ref *pSender, Widget::TouchEventType type)
             
         case Widget::TouchEventType::ENDED:
             
-            if(name == "start")
+            if(name == "yes")
             {
+                GCache::setAd(true);
+                GHomeScene* sc = (GHomeScene*)Director::getInstance()->getRunningScene();
+                sc->updateUI();
                 
+                this->runAction(Sequence::create(EaseSineOut::create(ScaleTo::create(0.3f,0.01f)),RemoveSelf::create(), NULL));
+            }
+            else if(name == "no")
+            {
+                this->runAction(Sequence::create(EaseSineOut::create(ScaleTo::create(0.3f,0.01f)),RemoveSelf::create(), NULL));
             }
             
             break;

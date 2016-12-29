@@ -72,7 +72,7 @@ void GHeroSprite::attack()
     
     auto bullet = GBulletSprite::create(this->bullet->_id,this);
     bullet->run();
-    
+
     GCache::getInstance()->getGameScene()->bullets.push_back(bullet);
     
     this->stopActionByTag(ACTION_ATTACK);
@@ -103,6 +103,8 @@ void GHeroSprite::hurt(GBulletSprite* bullet)
     shape->runAction(ac);
     
     reduceHp(bullet->bullet->hurt);
+    
+    GTools::playSound(SOUND_HURT);
 }
 
 void GHeroSprite::reduceHp(int hp)
@@ -113,7 +115,8 @@ void GHeroSprite::reduceHp(int hp)
     this->hp->setPercentage(per);
     if(per <= 0)
     {
-        //        this->die();
+        this->die();
+        GTools::playSound(SOUND_DIE);
     }
 }
 
@@ -130,14 +133,13 @@ void GHeroSprite::run(Vec2 &pos)
 }
 
 void GHeroSprite::changeSkill(int _id)
-{
+{    
     shape->stopActionByTag(ACTION_SKILL);
     skillBullet = GCache::getInstance()->getBullet(_id);
     skillBullet->retain();
     changeState(State::SKILL);
     this->isSkill = true;
     skill();
-
 }
 
 void GHeroSprite::skill()

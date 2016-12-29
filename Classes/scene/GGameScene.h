@@ -11,6 +11,7 @@
 
 #include "GScene.h"
 #include "ui/GRockView.h"
+#include "ui/GUIGameOver.h"
 #include "sprite/GHeroSprite.h"
 #include "sprite/GEnemySprite.h"
 #include "sprite/GBulletSprite.h"
@@ -33,6 +34,7 @@ public:
     CREATE_FUNC(GGameScene);
     
     void rockHandler(cocos2d::Vec2 &dir,float power,const char *data);
+    void touchEvent(cocos2d::Ref *pSender, Widget::TouchEventType type);
     void update(float dt);
     
     
@@ -44,7 +46,12 @@ public:
     void updateEnemy(float dt);
     //更新子弹
     void updateBullet(float dt);
+    //更新掉落
+    void updateDrop(float dt);
     
+    void updateUI();
+    
+    void end(bool isSuccess);
 public:
     GHeroSprite* hero;
     std::vector<GEnemySprite*> enemys;
@@ -54,7 +61,11 @@ public:
     std::vector<GDropSprite*> dropBullets;
     GLevel* level;
 private:
-    
+    Text* t_coin;
+    Text* t_time;
+    int coin;
+    float time;
+    float timeDt;
 };
 
 

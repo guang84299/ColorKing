@@ -15,7 +15,7 @@ GLevel* GLevel::create(GJsonObject* obj)
     level->_id = obj->getInt("id");
     level->maxEnemyNum = obj->getInt("maxEnemyNum");
     level->updateTime = obj->getDouble("updateTime");
-    level->time = obj->getDouble("time");
+    level->time = obj->getInt("time");
     level->updateBulletTime = obj->getDouble("updateBulletTime");
     level->maxBulletNum = obj->getInt("maxBulletNum");
     level->bullet1 = obj->getInt("bullet1");

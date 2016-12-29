@@ -74,7 +74,7 @@ void GEnemySprite::attack()
     
     auto bullet = GBulletSprite::create(this->bullet->_id,this);
     bullet->run();
-    
+
     GCache::getInstance()->getGameScene()->enemy_bullets.push_back(bullet);
     
     this->stopActionByTag(ACTION_ATTACK);
@@ -111,6 +111,8 @@ void GEnemySprite::hurt(GBulletSprite* bullet)
 
     
     reduceHp(bullet->bullet->hurt);
+    
+    GTools::playSound(SOUND_HURT);
 }
 
 void GEnemySprite::reduceHp(int hp)
@@ -123,6 +125,7 @@ void GEnemySprite::reduceHp(int hp)
     if(per <= 0)
     {
         this->die();
+        GTools::playSound(SOUND_SCORE);
     }
 }
 
